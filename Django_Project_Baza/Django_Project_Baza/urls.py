@@ -16,7 +16,7 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import include, path
-from App_Baza.views import nowy_raport, machine_create_view, raport_view
+from App_Baza.views import nowy_raport, machine_create_view, raport_view, NewUser_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,5 +24,6 @@ urlpatterns = [
     path('nowy_raport', nowy_raport, name='nowy_raport'),
     path('create/', machine_create_view, name='create'),
     path('raport/', raport_view, name='raport'),
+    path('user/', NewUser_view, name='user'),
 
 ]

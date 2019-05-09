@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Machine, Production
+from .models import Machine, Production, User
 
 class MachineForm(forms.ModelForm):
      class Meta:
@@ -21,4 +21,12 @@ class NowyRaport(forms.ModelForm):
             'shift_date',
             'Machine',
             'Production_Value',
+        ]
+
+class NewUser(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = [
+            'Personal_Nr',
+            'User_Level',
         ]

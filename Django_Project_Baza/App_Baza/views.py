@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.template import loader
 from App_Baza.models import Production, Machine
 from django.db.models import Sum
-from App_Baza.forms import MachineForm, NowyRaport
+from App_Baza.forms import MachineForm, NowyRaport, NewUser
 from datetime import datetime
 
 # Create your views here.
@@ -52,3 +52,12 @@ def raport_view(request):
         'form':form
     }
     return render(request, 'raport.html',context)
+NewUser
+def NewUser_view(request):
+    form = NewUser(request.POST or None)
+    if form.is_valid():
+        form.save()
+    context = {
+        'form':form
+    }
+    return render(request, 'NewUser.html',context)

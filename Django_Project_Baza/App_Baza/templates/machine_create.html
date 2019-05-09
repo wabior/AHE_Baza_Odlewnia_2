@@ -2,7 +2,7 @@
 {% block main %}
 <h3>PANEL DODAWANIA MASZYNY</h3>
 
-<form>
+<form method="POST"> {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="DODAJ MASZYNĘ" />
 </form>

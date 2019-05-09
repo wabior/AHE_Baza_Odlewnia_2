@@ -1,0 +1,9 @@
+{% extends "baza.html" %}
+{% block main %}
+<h3>NOWY UŻYTKOWNIK</h3>
+
+<form  method="POST"> {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="DODAJ UŻYTKOWNIKA" />
+</form>
+{% endblock main %}
