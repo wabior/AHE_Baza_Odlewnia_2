@@ -1,0 +1,21 @@
+{% extends "baza.html" %}
+{% block main %}
+
+<h3>PRZEGLĄD FORM:</h3>
+
+{% if formy %}
+    <ul>
+    {% for forma in formy %}
+
+        <li>
+            {{ forma.Code_name }}
+        </li>
+
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No forms are available.</p>
+{% endif %}
+
+
+{% endblock main %}

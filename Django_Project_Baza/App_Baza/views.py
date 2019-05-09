@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
-from App_Baza.models import Production, Machine
+from App_Baza.models import Production, Machine, Forms
 from django.db.models import Sum
 from App_Baza.forms import MachineForm, NowyRaport, NewUser
 from datetime import datetime
@@ -57,7 +57,11 @@ def NewUser_view(request):
     return render(request, 'NewUser.html',context)
 
 def raporty_view(request):
-    raport = Production.objects.get(id=1)
     raporty = Production.objects.all()
-    context = {'object':raport, 'raporty':raporty}
+    context = {'raporty':raporty}
     return render(request, 'raporty_view.html',context)
+
+def formy_view(request):
+    formy = Forms.objects.all()
+    context = {'formy':formy}
+    return render(request, 'formy_view.html',context)

@@ -9,6 +9,9 @@ class Project(models.Model):
         return self.Project_name
     Project_name    = models.CharField(max_length=60)
     SOP_Date        = models.DateTimeField(blank=True,null=True)
+    class Meta:
+        verbose_name        = "Projekt"
+        verbose_name_plural = "Projekty"
 
 class Type(models.Model):
     def __str__(self):
@@ -17,6 +20,9 @@ class Type(models.Model):
     Name = models.CharField(max_length=60)
     Type_Id = models.CharField(max_length=60)
     Project_Project = models.ForeignKey(Project,on_delete=models.CASCADE,blank=True,null=True)
+    class Meta:
+        verbose_name        = "Typ głowicy"
+        verbose_name_plural = "Typy głowic"
 
 class Forms(models.Model):
     def __str__(self):
@@ -27,6 +33,9 @@ class Forms(models.Model):
     Max_Shoots = models.IntegerField()
     Status = models.IntegerField()
     Type_Type = models.ForeignKey(Type,on_delete=models.CASCADE,blank=True,null=True)
+    class Meta:
+        verbose_name        = "Forma"
+        verbose_name_plural = "Formy"
 
 class Machine(models.Model):
     def __str__(self):
@@ -37,6 +46,9 @@ class Machine(models.Model):
     Form_Forms = models.ForeignKey(Forms,on_delete=models.CASCADE,blank=True,null=True)
     Current_Shoots = models.IntegerField(default=0)
     Total_Shoots = models.IntegerField(default=0)
+    class Meta:
+        verbose_name        = "Maszyna"
+        verbose_name_plural = "Maszyny"
 
 class Production(models.Model):
     def __str__(self):
@@ -44,6 +56,9 @@ class Production(models.Model):
     shift_date = models.DateField(auto_now=False,default=datetime.now)
     Machine = models.ForeignKey(Machine, on_delete=models.CASCADE, blank=False, null=True)
     Production_Value = models.IntegerField(default=0)
+    class Meta:
+        verbose_name        = "Produkcja"
+        verbose_name_plural = "Produkcja"
 
 class User(models.Model):
     def __str__(self):
@@ -64,5 +79,7 @@ class User(models.Model):
         choices=USER_LEVEL,
         default=USER,
     )
-
+    class Meta:
+        verbose_name        = "Użytkownik"
+        verbose_name_plural = "Użytkownicy"
 
