@@ -1,0 +1,41 @@
+{% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>baza</title>
+</head>
+<body>
+
+    <div id="container">
+
+        <div id="topbar">
+
+            {% block topbar1 %}<h1>SYSTEM ZARZĄDZANIA PRODUKCJĄ ODLEWNI</h1> {% endblock topbar1 %}
+        </div>
+
+        <div id="menu">
+            <div class="option"><a href="{% url 'raport' %}">NOWY RAPORT</a></div>
+            <div class="option"><a href="">RAPORTY</a></div>
+            <div class="option"><a href="{% url 'create' %}">MASZYNY I FORMY</a></div>
+            <div class="option"><a href="">UŻYTKOWNICY</a></div>
+            <div style="clear:both;"></div>
+            {% block menu %} {% endblock menu %}
+        </div>
+
+        <div id="main">
+
+            {% block main %} main{% endblock main %}
+        </div>
+
+        <div id="footer">
+            footer
+        </div>
+
+
+
+    </div>
+
+</body>
+</html>
