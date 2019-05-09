@@ -24,12 +24,6 @@ def index(request):
     context = {'total': total}
     return HttpResponse(template.render(context, request))
 
-def nowy_raport(request):
-    maszyna = Machine.objects.get(pk=1)
-    # b = Production(shift_date=datetime.now, Machine=maszyna ,Production_Value=166)
-    # b.save()
-    return render(request, 'nowy_raport.html',{})
-
 def topbar(request):
     template = loader.get_template('topbar.html')
     return render(request,'topbar.html',{'topbar':topbar})
@@ -52,7 +46,7 @@ def raport_view(request):
         'form':form
     }
     return render(request, 'raport.html',context)
-NewUser
+
 def NewUser_view(request):
     form = NewUser(request.POST or None)
     if form.is_valid():
@@ -61,3 +55,9 @@ def NewUser_view(request):
         'form':form
     }
     return render(request, 'NewUser.html',context)
+
+def raporty_view(request):
+    raport = Production.objects.get(id=1)
+    raporty = Production.objects.all()
+    context = {'object':raport, 'raporty':raporty}
+    return render(request, 'raporty_view.html',context)

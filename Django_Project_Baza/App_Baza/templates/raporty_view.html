@@ -1,0 +1,23 @@
+{% extends "baza.html" %}
+{% block main %}
+
+<h3>RAPORTY PRODUKCJI:</h3>
+&nbsp;&nbsp;data&nbsp;&nbsp; maszyna &nbsp; &nbsp;&nbsp; wyprodukowano
+
+{% if raporty %}
+    <ul>
+    {% for rap in raporty %}
+
+        <li>{{ rap.shift_date }}  	&nbsp; 	&nbsp;
+            {{ rap.Machine }} 	    &nbsp; 	&nbsp;
+            {{ rap.Production_Value }}
+        </li>
+
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No raports are available.</p>
+{% endif %}
+
+
+{% endblock main %}

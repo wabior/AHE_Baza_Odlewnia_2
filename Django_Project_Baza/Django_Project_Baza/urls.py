@@ -16,14 +16,15 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import include, path
-from App_Baza.views import nowy_raport, machine_create_view, raport_view, NewUser_view
+from App_Baza.views import  machine_create_view, raport_view, NewUser_view, raporty_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('App_Baza.urls')),
-    path('nowy_raport', nowy_raport, name='nowy_raport'),
     path('create/', machine_create_view, name='create'),
     path('raport/', raport_view, name='raport'),
     path('user/', NewUser_view, name='user'),
+    path('raporty/', raporty_view, name='raporty'),
+
 
 ]
